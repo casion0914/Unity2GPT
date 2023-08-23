@@ -62,7 +62,8 @@ async def chat(data: InputData):
             #        presence_penalty=0,
             #        max_tokens=2048, # 限制生成回答的最大长度
         )
-        return response.choices[0].message
+        # return {"answer" : response.choice[0].message}
+        return response.choices[0].message.content
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
